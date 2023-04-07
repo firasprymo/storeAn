@@ -52,6 +52,8 @@ import { ChangePasswordComponent } from './components/profile/change-password/ch
 import { HomeshopComponent } from './homeshop/homeshop.component';
 import { PannierComponent } from './pannier/pannier.component';
 import {CoreCardModule} from '../@core/components/core-card/core-card.module';
+import {NgxBarcodeModule} from 'ngx-barcode';
+import {NgxPrintModule} from 'ngx-print';
 
 const appRoutes: Routes = [
 
@@ -217,7 +219,8 @@ const appRoutes: Routes = [
         CoreCommonModule,
         CoreSidebarModule,
         CoreThemeCustomizerModule,
-
+        NgxBarcodeModule,
+        NgxPrintModule,
         // App modules
         LayoutModule,
         SampleModule,
@@ -230,3 +233,4 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+

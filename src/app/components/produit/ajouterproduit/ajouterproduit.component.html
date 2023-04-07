@@ -1,96 +1,116 @@
 <div class="container mt-4">
     <form (submit)="onSubmit()">
 
-      <div class="form-group col-md-6">
-        <label for="nom">Product Name</label>
-        <input type="text" class="form-control" id="nom" name="nom" placeholder="Enter Product Name" [(ngModel)]="newProduit.nom" >
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="codebar">Bar Code</label>
-        <input type="number" class="form-control" id="codebar" name="codebar" placeholder="Enter Bar Code" [(ngModel)]="newProduit.codebar" >
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="qteInPacket">Quantity in Packet</label>
-        <input type="number" class="form-control" id="qteInPacket" name="qteInPacket" placeholder="Enter Quantity in Packet" [(ngModel)]="newProduit.qteInPacket" >
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="article">Article</label>
-        <input type="text" class="form-control" id="article" name="article" placeholder="Enter Article" [(ngModel)]="newProduit.article" >
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="color">Color</label>
-        <input type="text" class="form-control" id="color" name="color" placeholder="Enter Color" [(ngModel)]="newProduit.color" >
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="description">Description</label>
-        <input type="text" class="form-control" id="description" name="description" placeholder="Enter Description" [(ngModel)]="newProduit.description" >
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="quantiteStockMin">Minimum Stock Quantity</label>
-        <input type="number" class="form-control" id="quantiteStockMin" name="quantiteStockMin" placeholder="Enter Minimum Stock Quantity" [(ngModel)]="newProduit.quantiteStockMin" >
-      </div>
+        <div class="form-group col-md-6">
+            <label for="nom">Product Name</label>
+            <input type="text" class="form-control" id="nom" name="nom" placeholder="Enter Product Name"
+                   [(ngModel)]="newProduit.nom">
+        </div>
 
         <div class="form-group col-md-6">
-          <label for="quantiteStockMax">Maximum Stock Quantity</label>
-          <input type="number" class="form-control" id="quantiteStockmax"  name="quantiteStockmax" placeholder="Enter Maximum Stock Quantity" [(ngModel)]="newProduit.quantiteStockmax" >
+            <label for="codebar">Bar Code</label>
+            <input type="number" class="form-control" id="codebar" name="codebar" placeholder="Enter Bar Code"
+                   [(ngModel)]="newProduit.codebar">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="qteInPacket">Quantity in Packet</label>
+            <input type="number" class="form-control" id="qteInPacket" name="qteInPacket"
+                   placeholder="Enter Quantity in Packet" [(ngModel)]="newProduit.qteInPacket">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="article">Article</label>
+            <input type="text" class="form-control" id="article" name="article" placeholder="Enter Article"
+                   [(ngModel)]="newProduit.article">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="color">Color</label>
+            <input type="text" class="form-control" id="color" name="color" placeholder="Enter Color"
+                   [(ngModel)]="newProduit.color">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" name="description" placeholder="Enter Description"
+                   [(ngModel)]="newProduit.description">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="quantiteStockMin">Minimum Stock Quantity</label>
+            <input type="number" class="form-control" id="quantiteStockMin" name="quantiteStockMin"
+                   placeholder="Enter Minimum Stock Quantity" [(ngModel)]="newProduit.quantiteStockMin">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="quantiteStockMax">Maximum Stock Quantity</label>
+            <input type="number" class="form-control" id="quantiteStockmax" name="quantiteStockmax"
+                   placeholder="Enter Maximum Stock Quantity" [(ngModel)]="newProduit.quantiteStockmax">
         </div>
 
 
+        <div class="form-group col-md-6">
+            <label for="prixFournisseur">Provider Price</label>
+            <input type="number" class="form-control" id="prixFournisseur" name="prixFournisseur"
+                   placeholder="Enter Provider Price" [(ngModel)]="newProduit.prixFournisseur">
+        </div>
 
-      <div class="form-group col-md-6">
-        <label for="prixFournisseur">Provider Price</label>
-        <input type="number" class="form-control" id="prixFournisseur" name="prixFournisseur" placeholder="Enter Provider Price" [(ngModel)]="newProduit.prixFournisseur" >
-      </div>
+        <div class="form-group col-md-6">
+            <label for="prixventemin">Minimum Selling Price</label>
+            <input type="number" class="form-control" id="prixventemin" name="prixventemin"
+                   placeholder="Enter Minimum Selling Price" [(ngModel)]="newProduit.prixventemin">
+        </div>
 
-      <div class="form-group col-md-6">
-        <label for="prixventemin">Minimum Selling Price</label>
-        <input type="number" class="form-control" id="prixventemin" name="prixventemin" placeholder="Enter Minimum Selling Price" [(ngModel)]="newProduit.prixventemin" >
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="price">Price</label>
-        <input type="number" class="form-control" id="price" name="price" placeholder="Enter Price" [(ngModel)]="newProduit.prixvente" >
-      </div>
+        <div class="form-group col-md-6">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" id="price" name="price" placeholder="Enter Price"
+                   [(ngModel)]="newProduit.prixvente">
+        </div>
 
 
+        <div class="form-group col-md-6">
+            <label for="reductionprix">Price Reduction</label>
+            <input type="number" class="form-control" id="reductionprix" name="reductionprix"
+                   placeholder="Enter Minimum Selling Price" [(ngModel)]="newProduit.reductionprix">
+        </div>
 
-      <div class="form-group col-md-6">
-        <label for="reductionprix">Price Reduction</label>
-        <input type="number" class="form-control" id="reductionprix" name="reductionprix" placeholder="Enter Minimum Selling Price" [(ngModel)]="newProduit.reductionprix" >
-      </div>
+        <div class="form-group col-md-6">
+            <label for="dateexpiration">Expiration Date</label>
+            <input type="date" class="form-control" id="dateexpiration" name="dateexpiration"
+                   placeholder="Enter Expiration Date" [(ngModel)]="newProduit.dateexpiration"
+                   [ngModelOptions]="{timezone: 'local'}">
+        </div>
 
-      <div class="form-group col-md-6">
-        <label for="dateexpiration">Expiration Date</label>
-        <input type="date" class="form-control" id="dateexpiration" name="dateexpiration"
-          placeholder="Enter Expiration Date" [(ngModel)]="newProduit.dateexpiration"
-          [ngModelOptions]="{timezone: 'local'}" >
-      </div>
+        <div class="form-group col-md-6">
+            <label for="quantity">Quantity</label>
+            <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter Quantity"
+                   [(ngModel)]="newProduit.stock">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="image">image de produit :</label>
+            <input type="number" class="form-control" id="image" name="image" placeholder="URL d'image "
+                   [(ngModel)]="newProduit.image">
+        </div>
 
-      <div class="form-group col-md-6">
-        <label for="quantity">Quantity</label>
-        <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter Quantity" [(ngModel)]="newProduit.stock" >
-      </div>
-      <div class="form-group col-md-6">
-        <label for="image">image de produit :</label>
-        <input type="number" class="form-control" id="image" name="image" placeholder="URL d'image " [(ngModel)]="newProduit.image" >
-      </div>
+        <div class="form-group col-md-6">
+            <label for="category">Category</label>
+            <select id="category" name="category" class="form-control" [(ngModel)]="newProduit.categorieid">
+                <option *ngFor="let category of categories" [value]="category.id">{{category.id}}
+                    - {{category.titre}}</option>
+            </select>
+        </div>
 
-      <div class="form-group col-md-6">
-        <label for="category">Category</label>
-        <select id="category" name="category" class="form-control" [(ngModel)]="newProduit.categorieid">
-          <option *ngFor="let category of categories" [value]="category.id">{{category.id}} - {{category.titre}}</option>
-        </select>
-      </div>
 
-      
+        <button type="submit" class="btn btn-primary">Add Product</button>
 
-      <button type="submit" class="btn btn-primary">Add Product</button>
+        <div >
 
+            <ngx-barcode id="print-section" [bc-value]="value" [bc-display-value]="true"></ngx-barcode>
+            <button class="btn btn-primary"
+                    printSectionId="print-section"
+                    ngxPrint>print
+            </button>
+        </div>
     </form>
-  </div>
+</div>

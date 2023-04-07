@@ -19,15 +19,11 @@
 <!--</div>-->
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col-lg-3 h-50" *ngFor="let produit of produits">
-        <div class="card card_product h-100">
+        <div class="card card_product">
 
 
-            <img class="card-img-top" [src]="produit?.image" alt="Card image cap">
+            <img class="card-img-top  img-fluid h-50 " [src]="produit?.image" alt="Card image cap">
             <div class="card-body">
-                <!-- <div class="form-group">
-                   <label for="date">Date: {{ time | date: 'dd/MM/yyyy à HH:mm:ss' }}</label>
-                 </div>
-             -->
                 <h4 class="card-title">{{produit?.nom}}</h4>
                 <p class="card-text">{{ showFullText ? produit?.description : produit?.description | slice:0:80 }}
                     ... </p>
@@ -35,13 +31,6 @@
                     <h2 class="card-text prix_vente"> {{produit?.prixvente}} $</h2>
                     <h2 class="card-text">{{produit?.reductionprix}} $</h2>
                 </div>
-                <!--                    <span *ngIf="produit?.description.length > 100 && !showFullText;else showless">...-->
-                <!--                        <a class="show_more font-weight-bold" (click)="showMore()">Show more</a>-->
-                <!--                    </span>-->
-                <!--                    <ng-template #showless>-->
-
-                <!--                        <a class="show_more font-weight-bold" (click)="collapse()">Show less</a>-->
-                <!--                    </ng-template>-->
             </div>
             <div class="show card-footer text-muted p-0">
 

@@ -228,7 +228,7 @@ export class HomeshopComponent implements OnInit {
                 stock: 100,
                 reductionprix: 25,
                 dateexpiration: new Date(),
-                image: 'https://mdbootstrap.com/img/Photos/Others/images/43.webp',
+                image: 'https://djx5h8pabpett.cloudfront.net/wp-content/uploads/sites/4/2017/01/24180639/Dewars.jpeg',
             }
         ];
         // this.getProduits();

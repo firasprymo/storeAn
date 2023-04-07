@@ -7,13 +7,15 @@
   transform: translate(0, 0%);
 
 }
-
+.card_product{
+  height: 70vh !important;
+}
 .card_product:hover .show {
   display: block;
   position: relative;
   font-size: 1.5rem;
   margin-top: -50px;
-  transform: translate(0,60%);
+  transform: translate(0,20%);
 }
 
 .card-text {

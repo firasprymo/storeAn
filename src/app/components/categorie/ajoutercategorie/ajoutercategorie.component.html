@@ -1,0 +1,21 @@
+
+<div class="container mt-4">
+    <form (submit)="onSubmit()">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" [(ngModel)]="newCategorie.titre" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description" placeholder="Enter Description" [(ngModel)]="newCategorie.description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="parentCategory">Parent Category</label>
+        <select id="parentCategory" name="parentCategory" class="form-control" [(ngModel)]="newCategorie.parentid">
+          <option *ngFor="let categorie of categories" [value]="categorie.id">{{categorie.id}} - {{ categorie.titre }}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Category</button>
+    </form>
+  </div>
+  

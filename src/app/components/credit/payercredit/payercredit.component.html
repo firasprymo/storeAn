@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+
+            <div class="form-group">
+                <label for="selectedClient">Selected Client</label>
+                <select [(ngModel)]="selectedClient" (ngModelChange)="getClientCredit()" class="form-control">
+                    <option *ngFor="let client of clients" [value]="client.id">{{ client.name }}</option>
+                </select>
+             </div>
+  
+  <p>Credit: {{ clientCredit }}</p>
+
+<div class="form-group">
+  <label for="credit-payment">Credit Payment:</label>
+  <input type="number" id="credit-payment" [(ngModel)]="creditPayment" [disabled]="!selectedClient" class="form-control">
+</div>
+
+<div class="form-group">
+  <label for="credit-rest">Credit Rest:{{ clientCredit-creditPayment }}</label>
+</div>
+
+<button type="button" class="btn btn-primary" (click)="saveCreditPayment()" [disabled]="!selectedClient || !creditPayment">Save</button>
+</div>
+</div>
+</div>
+</div>

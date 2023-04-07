@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <div class="card">
+
+      <div class="card-body">
+        <div class="row">
+          
+          <div class="col-md-6">
+            <h2>Product Name: {{produit?.nom}}</h2>
+            <p>Bar Code: {{produit?.codebar}}</p>
+            <p>Quantity in Packet: {{produit?.qteInPacket}}</p>
+            <p>Article: {{produit?.article}}</p>
+            <p>Color: {{produit?.color}}</p>
+            <p>Description: {{produit?.description}}</p>
+            <p>Minimum Stock Quantity: {{produit?.quantiteStockMin}}</p>
+            <p>Maximum Stock Quantity: {{produit?.quantiteStockmax}}</p>
+            <p>Provider Price: {{produit?.prixFournisseur}}</p>
+            <p>Minimum Selling Price: {{produit?.prixventemin}}</p>
+            <p>Price: {{produit?.prixvente}}</p>
+            <p>Price Reduction: {{produit?.reductionprix}}</p>
+            <p>Expiration Date: {{produit?.dateexpiration}}</p>
+            <p>Category: {{produit?.categorieid}}</p>
+            <p>Stock Quantity: {{produit?.stock}}</p>
+
+
+          
+          </div>
+          <div class="col-md-6">
+            <button class="btn btn-primary mr-2" (click)="onModify()">Modify</button>
+            <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

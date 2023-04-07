@@ -1,0 +1,30 @@
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          
+          <div class="col-md-6">
+            <h2>User Profile</h2>
+            <p>Name: {{ currentUser.name }} </p>
+            <p>Last Name:  {{ currentUser.lastName }} </p>
+            <p>Email: {{ currentUser.email }}</p>
+            <p>Role: {{ currentUser.role }}</p>
+            <p>ID: {{ currentUser.id }}</p>
+            <p>Phone: {{ currentUser.phone }}</p>
+            
+          </div>
+
+
+
+          <div class="col-md-6">
+            <button class="btn btn-primary mr-2" (click)="onModify()">Modify Password</button>
+
+
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>

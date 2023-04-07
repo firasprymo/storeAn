@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <div class="card">
+
+      <div class="card-body">
+        <div class="row">
+          
+          <div class="col-md-6">
+            <h2>{{client?.name}} {{client?.lastname}}</h2>
+            <p>Priority: {{client?.priority}}</p>
+            <p>Gender: {{client?.gender}}</p>
+            <p>Phone: {{client?.phone}}</p>
+            <p>Email: {{client?.email}}</p>
+            <p>Address: {{client?.adresse}}</p>
+            <p>Credit: {{client?.credit}}</p>
+            <button class="btn btn-primary mr-2" (click)="onModify()">Modify</button>
+            <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+          </div>
+          <div class="col-md-6">
+            <img class="img-thumbnail" src="{{client?.photo}}" alt="Client Photo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

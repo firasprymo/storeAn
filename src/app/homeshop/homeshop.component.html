@@ -1,0 +1,78 @@
+<!-- <div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="col">
+  <div class="card h-100">
+
+    <div class="card-body">
+     <div> <h5 class="card-title"> Nom Du Produit :</h5>
+      <input type="text" class="form-control" placeholder="nom du produit" >
+      <option *ngFor="let produit of produits " [value]="Produit.id">{{Produit.id}} - {{Produit.titre}}</option>
+  </div>
+</div>
+</div> -->
+<!--<div class="float-right mr-3 my-2">-->
+<!--    <label>Show</label>-->
+<!--    <select class="form-control" [(ngModel)]="pageSize" (change)="paginate($event)">-->
+<!--      <option value="5">5</option>-->
+<!--      <option value="10">10</option>-->
+<!--      <option value="20">20</option>-->
+<!--    </select>-->
+<!--</div>-->
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col-lg-3 h-50" *ngFor="let produit of produits">
+        <div class="card card_product h-100">
+
+
+            <img class="card-img-top" [src]="produit?.image" alt="Card image cap">
+            <div class="card-body">
+                <!-- <div class="form-group">
+                   <label for="date">Date: {{ time | date: 'dd/MM/yyyy à HH:mm:ss' }}</label>
+                 </div>
+             -->
+                <h4 class="card-title">{{produit?.nom}}</h4>
+                <p class="card-text">{{ showFullText ? produit?.description : produit?.description | slice:0:80 }}
+                    ... </p>
+                <div class="d-flex justify-content-between">
+                    <h2 class="card-text prix_vente"> {{produit?.prixvente}} $</h2>
+                    <h2 class="card-text">{{produit?.reductionprix}} $</h2>
+                </div>
+                <!--                    <span *ngIf="produit?.description.length > 100 && !showFullText;else showless">...-->
+                <!--                        <a class="show_more font-weight-bold" (click)="showMore()">Show more</a>-->
+                <!--                    </span>-->
+                <!--                    <ng-template #showless>-->
+
+                <!--                        <a class="show_more font-weight-bold" (click)="collapse()">Show less</a>-->
+                <!--                    </ng-template>-->
+            </div>
+            <div class="show card-footer text-muted p-0">
+
+                <a class=" btn btn-primary w-100">Ajouter au panier</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="table">-->
+<!--    <thead>-->
+<!--      <tr>-->
+<!--        <th> Image </th>-->
+<!--        <th>Name</th>-->
+<!--        <th>Category</th>-->
+<!--        <th>Price</th>-->
+<!--      -->
+<!--      </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--      <tr *ngFor="let produit of produits | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">-->
+<!--        <td> {{ produit.image}}</td>-->
+<!--        <td>{{ produit.nom }}</td>-->
+<!--        <td>{{ produit.categorieid }} - {{ getCategorie(produit.categorieid)?.titre }}</td>-->
+<!--        <td>{{ produit.prixvente }}</td>-->
+<!--   -->
+<!--        -->
+<!--      </tr>-->
+<!--    </tbody>-->
+<!--</div>>-->
+
+<!--<div class="pagination">-->
+<!--    <pagination-controls (pageChange)="currentPage = $event" previousLabel="Previous" nextLabel="Next"></pagination-controls>-->
+<!--</div>-->
+

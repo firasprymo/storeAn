@@ -1,0 +1,24 @@
+<div class="container mt-4">
+    <div class="card">
+
+      <div class="card-body">
+        <div class="row">
+          
+          <div class="col-md-6">
+            <h2>{{fournisseur?.name}} {{fournisseur?.lastname}}</h2>
+            <p>Gender: {{fournisseur?.gender}}</p>
+            <p>Priority: {{fournisseur?.phone}}</p>
+            <p>Phone: {{fournisseur?.email}}</p>
+            <p>Address: {{fournisseur?.adresse}}</p>
+            <p>Credit: {{fournisseur?.photo}}</p>
+            <button class="btn btn-primary mr-2" (click)="onModify()">Modify</button>
+            <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+          </div>
+          <div class="col-md-6">
+            <img class="img-thumbnail" src="{{fournisseur?.photo}}" alt="Fournisseur Photo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

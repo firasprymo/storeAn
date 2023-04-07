@@ -1,0 +1,30 @@
+<div class="container mt-4">
+    <div class="card">
+
+      <div class="card-body">
+        <div class="row">
+          
+          <div class="col-md-6">
+            <h2>{{employe?.firstname}} {{employe?.lastname}}</h2>
+            <p>CIN: {{employe?.cin}}</p>
+            <p>Type contrat: {{employe?.typecontrat}}</p>
+            <p>Gender: {{employe?.gender}}</p>
+            <p>Birth date: {{employe?.birthDate}}</p>
+            <p>Phone: {{employe?.phone}}</p>
+            <p>Email: {{employe?.email}}</p>
+            <p>Address: {{employe?.adresse}}</p>
+            <p>Photo: {{employe?.photo}}</p>
+            <p>Salaire: {{employe?.salaire}}</p>
+            <p>Salaire brut: {{employe?.salairebrut}}</p>
+         
+            <button class="btn btn-primary mr-2" (click)="onModify()">Modify</button>
+            <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+          </div>
+          <div class="col-md-6">
+            <img class="img-thumbnail" src="{{employe?.photo}}" alt="employe Photo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

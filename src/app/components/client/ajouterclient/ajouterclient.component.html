@@ -1,0 +1,53 @@
+  <div class="container mt-4">
+    <form (submit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstname" name="name" placeholder="Enter First Name" [(ngModel)]="newClient.name" required>
+
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter Last Name" [(ngModel)]="newClient.lastname" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="priority">Priority</label>
+            <select id="priority" name="priority" class="form-control" [(ngModel)]="newClient.priority">
+              <option [value]="'low'" >Low</option>
+              <option [value]="'medium'">Medium</option>
+              <option [value]="'high'">High</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" class="form-control" [(ngModel)]="newClient.gender">
+              <option [value]="'male'">Male</option>
+              <option [value]="'Female'" >Female</option>
+            </select>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone" [(ngModel)]="newClient.phone">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" [(ngModel)]="newClient.email">
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="addresse" name="addresse" placeholder="Enter Address" [(ngModel)]="newClient.adresse">
+      </div>
+      <div class="form-group">
+        <label for="photo">Photo URL</label>
+        <input type="text" class="form-control" id="photo" name="photo" placeholder="Enter Photo URL" [(ngModel)]="newClient.photo">
+      </div>
+      <div class="form-group">
+        <label for="credit">Credit</label>
+        <input type="number" class="form-control" id="credit" name="credit" placeholder="Enter Credit" [(ngModel)]="newClient.credit" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Customer</button>
+    </form>
+  </div>

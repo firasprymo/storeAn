@@ -1,0 +1,28 @@
+<div class="container mt-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-3">
+            <h2>Facture n° {{factureclient?.id}}</h2>
+            <p>Date: {{factureclient?.datefacture | date}}</p>
+            <p>Client: {{factureclient?.idclient}} </p>
+            <p>mode de payement: {{factureclient?.modepayment}} </p>
+            <p>Total: {{factureclient?.total }}</p>
+            <p>Montant payé: {{factureclient?.montantpaye }}</p>
+            <p>Montant retourné: {{factureclient?.montantretourne }}</p>
+            <p>Hors Tax: {{factureclient?.HorsTax }}</p>
+            <p>TVA1: {{factureclient?.TVA1 }}</p>
+            <p>TVA2: {{factureclient?.TVA2 }}</p>
+          </div>
+          <div class="col-md-9">
+            <h3>Lignes de produits:</h3>
+            <ul>
+              <li *ngFor="let ligne of factureclient?.factureligneProduits">
+                {{ ligne.produit?.nom }} x {{ ligne.quantite }} = {{ ligne.produit?.prixvente }} x {{ ligne.quantite }} =  {{ ligne.produit?.prixvente * ligne.quantite }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

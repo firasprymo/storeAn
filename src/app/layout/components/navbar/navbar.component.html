@@ -46,7 +46,14 @@
           <i class="flag-icon flag-icon-{{ languageOptions[lang].flag }}"></i> {{ languageOptions[lang].title }}
         </a>
       </div>
-    </li> 
+    </li>
+    <li  class="nav-item " [routerLink]="['pannier']">
+      <a class="nav-link "  >
+        <i class=" fa fa-shopping-cart"></i>   <span class="badge badge-danger badge-pill">
+                            {{cartLength }}
+                        </span>
+      </a>
+    </li>
     <!--/ Language selection -->
 
     <!-- User Dropdown -->

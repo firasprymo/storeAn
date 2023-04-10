@@ -1,130 +1,131 @@
 <div class="row">
-  <div class="col-md-9">
-    <div class="form-row">
-      <div class="col-md-12 mb-3">
-        <div class="input-group">
-          <input #barcodeInput type="text" class="form-control input-field" placeholder="Barcode" />
-          <input #quantityInput type="number" class="form-control ml-1 mr-1 input-field" placeholder="Quantity" />
-          <div class="input-group-append">
-            <button class="btn btn-success" (click)="onAddClick(barcodeInput, quantityInput)">Add</button>
-          </div>
+    <div class="col-md-9">
+        <div class="form-row" [formGroup]="formCaisse">
+            <div class="col-md-12 mb-3">
+                <div class="input-group">
+                    <ng-select [items]="produits"
+                               bindLabel="codebar"
+                               class=" ml-1 mr-1 input-field custom"
+                               bindValue="codebar"
+                               formControlName="barCode">
+                    </ng-select>
+                    <input #quantityInput type="number" formControlName="quantity"
+                           class="form-control ml-1 mr-1 input-field" placeholder="Quantity"/>
+                    <div class="input-group-append">
+                        <button class="btn btn-success" (click)="onAddClick()">Add</button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+        <!-- Table of products added to the cart -->
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Barcode</th>
+                <th>Quantity</th>
+                <th>Name</th>
+                <th>Unit Price</th>
+                <th>Reduction</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of tableData">
+                <td>{{ item.codebar }}</td>
+                <td>{{ item.qteInPacket }}</td>
+                <td>{{ item.nom }}</td>
+                <td>{{ item.prixvente }}</td>
+                <td>{{ item.reductionprix }}</td>
+                <td>{{ item.qteInPacket * item.prixvente }}</td>
+                <td>
+                    <button (click)="removeItem(item)">Remove</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-    <!-- Table of products added to the cart -->
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Barcode</th>
-          <th>Quantity</th>
-          <th>Name</th>
-          <th>Unit Price</th>
-          <th>Reduction</th>
-          <th>Total</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of tableData">
-          <td>{{ item.barcode }}</td>
-          <td>{{ item.quantity }}</td>
-          <td>{{ item.name }}</td>
-          <td>{{ item.unitPrice }}</td>
-          <td>{{ item.reduction }}</td>
-          <td>{{ item.total }}</td>
-          <td><button (click)="removeItem(item)">Remove</button></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="col-md-3">
-    <!-- Card for payment details -->
-    <div class="card">
-      <div class="card-header">Checkout</div>
-      <div class="card-body">
-        <div class="form-group">
-          <label for="date">Date: {{ time | date: 'dd/MM/yyyy à HH:mm:ss' }}</label>
+    <div class="col-md-3">
+        <!-- Card for payment details -->
+        <div class="card">
+            <div class="card-header">Checkout</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="date">Date: {{ time | date: 'dd/MM/yyyy à HH:mm:ss' }}</label>
+                </div>
+                <div class="form-group">
+                    <label for="cashier-id">Cashier ID: 123</label>
+                </div>
+                <div class="form-group">
+                    <label for="facture-number">Facture Number: {{factureNumber}}</label>
+                </div>
+                <div class="form-group">
+                    <label for="total-purchase">Total Purchase: {{totalPurchase}} </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="payment-method">Payment Method:</label>
+                    <select class="form-control" id="payment-method"
+                            (change)="onPaymentMethodChange($event.target.value)">
+                        <option value="cash">Cash</option>
+                        <option value="credit">Credit</option>
+
+                    </select>
+                </div>
+
+
+                <div class="form-group" *ngIf="paymentMethod === 'cash'">
+                    <label for="amount-paid">Amount Paid:</label>
+                    <input type="number" class="form-control" id="amount-paid" [(ngModel)]="amountPaid"/>
+                </div>
+                <div class="form-group" *ngIf="paymentMethod === 'cash'  && amountPaid - totalPurchase > 0">
+                    <label for="return">Return:{{amountPaid - totalPurchase}}</label>
+                </div>
+
+
+                <div class="form-group" *ngIf="paymentMethod === 'credit'">
+                    <label for="client">Client: </label>
+                    <select class="form-control mr-1" id="clientSelect" [(ngModel)]="selectedClient">
+                        <option *ngFor="let client of clients" [ngValue]="client">{{client.id}}
+                            - {{client.name}}</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group" *ngIf="paymentMethod === 'check'">
+                    <label for="account-owner">Account owner:</label>
+                    <input type="text" class="form-control" id="account-owner" [(ngModel)]="accountowner"/>
+                    <label for="account-number">account number:</label>
+                    <input type="text" class="form-control" id="account-number" [(ngModel)]="accountnumber"/>
+                </div>
+
+
+                <div class="form-group" *ngIf="paymentMethod === 'ticket'">
+                    <label for="ticket-amount">Ticket Amount:</label>
+                    <input type="number" class="form-control" id="ticket-amount" [(ngModel)]="ticketAmount"/>
+
+                    <label for="quantity-of-ticket">Quantity of Ticket:</label>
+                    <input type="number" class="form-control" id="quantity-of-ticket" [(ngModel)]="quantityOfTicket"/>
+
+                    <label for="ticket-percentage">Percentage of Ticket:</label>
+                    <input type="number" class="form-control" id="ticket-percentage" [(ngModel)]="ticketPercentage"/>
+                    <br>
+                    <button class="btn btn-primary" (click)="addTicketresto()">Add Ticket</button>
+                    <div *ngIf="tickets.length > 0">
+                        <p *ngFor="let ticket of tickets">
+                            {{ ticket.amount }} ({{ ticket.percentage }}%) x {{ ticket.quantity }}
+                            =  {{ ticket.totalAmount }}
+                            <button class="btn btn-danger" (click)="deleteTicketresto(i)">Delete</button>
+                        </p>
+                        <p>Total Amount Paid with Ticket: {{ totalTicketAmount }}</p>
+                        <p>Amount to be Paid in Cash: {{ remainingAmount }}</p>
+                    </div>
+                </div>
+
+
+                <button class="btn btn-success mr-1" (click)="onSave()">Save</button>
+                <button class="btn btn-danger">Delete</button>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="cashier-id">Cashier ID: 123</label>
-        </div>
-        <div class="form-group">
-          <label for="facture-number">Facture Number: {{factureNumber}}</label>
-        </div>
-        <div class="form-group">
-          <label for="total-purchase">Total Purchase: {{totalPurchase}} </label>
-        </div>
-
-        <div class="form-group">
-          <label for="payment-method">Payment Method:</label>
-          <select class="form-control" id="payment-method" (change)="onPaymentMethodChange($event.target.value)">
-            <option value="cash">Cash</option>
-            <option value="credit">Credit</option>
-
-          </select>
-        </div>
-
-
-
-
-
-        <div class="form-group" *ngIf="paymentMethod === 'cash'">
-          <label for="amount-paid">Amount Paid:</label>
-          <input type="number" class="form-control" id="amount-paid" [(ngModel)]="amountPaid" />
-        </div>
-        <div class="form-group" *ngIf="paymentMethod === 'cash'  && amountPaid - totalPurchase > 0">
-          <label for="return">Return:{{amountPaid - totalPurchase}}</label>
-        </div>
-        
-
-        <div class="form-group" *ngIf="paymentMethod === 'credit'">
-          <label for="client">Client: </label>
-          <select class="form-control mr-1" id="clientSelect" [(ngModel)]="selectedClient">
-            <option *ngFor="let client of clients" [ngValue]="client">{{client.id}} - {{client.name}}</option>
-          </select>
-        </div>
-
-        
-        <div class="form-group" *ngIf="paymentMethod === 'check'">
-          <label for="account-owner">Account owner:</label>
-          <input type="text" class="form-control" id="account-owner" [(ngModel)]="accountowner" />
-          <label for="account-number">account number:</label>
-          <input type="text" class="form-control" id="account-number" [(ngModel)]="accountnumber" />
-        </div>
-        
-        
-        <div class="form-group" *ngIf="paymentMethod === 'ticket'">
-          <label for="ticket-amount">Ticket Amount:</label>
-          <input type="number" class="form-control" id="ticket-amount" [(ngModel)]="ticketAmount" />
-          
-          <label for="quantity-of-ticket">Quantity of Ticket:</label>
-          <input type="number" class="form-control" id="quantity-of-ticket" [(ngModel)]="quantityOfTicket" />
-          
-          <label for="ticket-percentage">Percentage of Ticket:</label>
-          <input type="number" class="form-control" id="ticket-percentage" [(ngModel)]="ticketPercentage" />
-          <br>
-          <button class="btn btn-primary" (click)="addTicketresto()">Add Ticket</button>
-          <div *ngIf="tickets.length > 0">
-            <p *ngFor="let ticket of tickets">
-              {{ ticket.amount }} ({{ ticket.percentage }}%) x {{ ticket.quantity }} =  {{ ticket.totalAmount }}
-              <button class="btn btn-danger" (click)="deleteTicketresto(i)">Delete</button>
-            </p>
-            <p>Total Amount Paid with Ticket: {{ totalTicketAmount }}</p>
-            <p>Amount to be Paid in Cash: {{ remainingAmount }}</p>
-          </div>
-        </div>
-        
-        
-        
-        
-        
-
-
-
-        
-        <button class="btn btn-success mr-1" (click)="onSave()">Save</button>
-        <button class="btn btn-danger">Delete</button>
-      </div>
     </div>
-  </div>
 </div>

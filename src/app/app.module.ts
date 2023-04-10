@@ -49,11 +49,13 @@ import { ModifierproduitComponent } from './components/produit/modifierproduit/m
 import { UserProfileComponent } from './components/profile/user-profile/user-profile.component';
 import { ChangePasswordComponent } from './components/profile/change-password/change-password.component';
 
-import { HomeshopComponent } from './homeshop/homeshop.component';
-import { PannierComponent } from './pannier/pannier.component';
+import { HomeshopComponent } from './layout/homeshop/homeshop.component';
+import { PannierComponent } from './layout/pannier/pannier.component';
 import {CoreCardModule} from '../@core/components/core-card/core-card.module';
 import {NgxBarcodeModule} from 'ngx-barcode';
 import {NgxPrintModule} from 'ngx-print';
+import {LocalStorageService} from 'ngx-webstorage';
+import {NgSelectModule} from '@ng-select/ng-select';
 
 const appRoutes: Routes = [
 
@@ -224,9 +226,11 @@ const appRoutes: Routes = [
         // App modules
         LayoutModule,
         SampleModule,
-        CoreCardModule
+        CoreCardModule,
+        NgSelectModule
     ],
   providers: [
+      LocalStorageService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 ],

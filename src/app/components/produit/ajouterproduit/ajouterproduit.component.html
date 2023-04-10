@@ -7,11 +7,11 @@
                    [(ngModel)]="newProduit.nom">
         </div>
 
-        <div class="form-group col-md-6 col-lg-6">
-            <label for="codebar">Bar Code</label>
-            <input type="number" class="form-control" id="codebar" name="codebar" placeholder="Enter Bar Code"
-                   [(ngModel)]="newProduit.codebar">
-        </div>
+        <!--        <div class="form-group col-md-6 col-lg-6">-->
+        <!--            <label for="codebar">Bar Code</label>-->
+        <!--            <input type="number" class="form-control" id="codebar" name="codebar" placeholder="Enter Bar Code"-->
+        <!--                   [(ngModel)]="newProduit.codebar">-->
+        <!--        </div>-->
 
         <div class="form-group col-md-6">
             <label for="qteInPacket">Quantity in Packet</label>
@@ -25,11 +25,11 @@
                    [(ngModel)]="newProduit.article">
         </div>
 
-        <div class="form-group col-md-6">
-            <label for="color">Color</label>
-            <input type="text" class="form-control" id="color" name="color" placeholder="Enter Color"
-                   [(ngModel)]="newProduit.color">
-        </div>
+        <!--        <div class="form-group col-md-6">-->
+        <!--            <label for="color">Color</label>-->
+        <!--            <input type="text" class="form-control" id="color" name="color" placeholder="Enter Color"-->
+        <!--                   [(ngModel)]="newProduit.color">-->
+        <!--        </div>-->
 
         <div class="form-group col-md-6">
             <label for="description">Description</label>
@@ -102,9 +102,10 @@
         </div>
 
 
-        <button type="submit" class="btn btn-primary">Add Product</button>
-
-        <div *ngIf="barCode">
+        <div class="form-group col-md-6">
+            <button type="submit" class="btn btn-primary">Add Product</button>
+        </div>
+        <div *ngIf="barCode" class="form-group col-md-6">
 
             <ngx-barcode id="print-section" [bc-value]="value" [bc-display-value]="true"></ngx-barcode>
             <button class="btn btn-primary"

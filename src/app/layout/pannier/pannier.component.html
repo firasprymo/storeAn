@@ -1,0 +1,40 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col-lg-8 mx-auto">
+        <div class="card h-100">
+            <div class="card-body" *ngIf="cartItems.length>0 ; else emptyCart" id="print-section">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center"
+                        *ngFor="let item of cartItems;let index">
+                        {{ item.productCardItem.produitModule.nom }}
+                        <span class="badge badge-primary badge-pill"> {{ item.productCardItem.produitModule.prixvente }}</span>
+                        <div class="quantity_span">
+                        <span class="badge badge-danger badge-pill">
+
+                            <i class="fa fa-minus " (click)="minus(item)"></i>
+                        </span>
+                            <span class="badge badge-danger badge-pill">
+                            {{item.productCardItem.quantity}}
+                        </span>
+                            <span class="badge badge-danger badge-pill">
+                            <i class="fa fa-plus " (click)="add(item)"></i>
+                        </span>
+                        </div>
+                        <span class="badge badge-danger badge-pill">
+                            <i class="fa fa-close " (click)="delete(item)"></i>
+                        </span>
+                    </li>
+                 </ul>
+                <p class="text-right mt-2 font-weight-bolder">Total : {{ cartTotal }}</p>
+                <button class="btn btn-success mr-1 btn-block" (click)="onSave()">Confirmer vos achat</button>
+            </div>
+            <button class="btn btn-warning mr-1 ml-auto mr-0 mb-2" printSectionId="print-section"
+                    ngxPrint>Imprimer</button>
+
+            <ng-template #emptyCart>
+
+                <div class="card-header">Pannier est vide </div>
+            </ng-template>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+.ng-select.custom {
+  border:0px;
+  min-height: 0px;
+  border-radius: 0;
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+  margin-bottom: 0;
+}
+.ng-select.custom .ng-select-container  {
+  min-height: 0px;
+  border-radius: 0;
+}

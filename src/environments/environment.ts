@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   hmr: false,
-  apiUrl: 'https://localhost:7258'
+  apiUrl: 'https://localhost:7258',
+    cartItems: 'cartItems'
 };
 
 /*

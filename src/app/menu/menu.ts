@@ -21,14 +21,14 @@ export const menu: CoreMenu[] = [
           
     
         },
-        {
-          id: "Pannier",
-          title: "Pannier",
-          translate: "Pannier",
-          type: "item",
-          icon: "shopping-bag",
-          url: "pannier",
-        },
+        // {
+        //   id: "Pannier",
+        //   title: "Pannier",
+        //   translate: "Pannier",
+        //   type: "item",
+        //   icon: "shopping-bag",
+        //   url: "pannier",
+        // },
       ],
     },
   {  

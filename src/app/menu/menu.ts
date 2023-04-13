@@ -68,6 +68,14 @@ export const menu: CoreMenu[] = [
         icon: "file",
         url: "credit/payer",
       },
+      {
+        id: "pay credit",
+        title: "Commandes",
+        translate: "Commandes",
+        type: "item",
+        icon: "file",
+        url: "commandes",
+      },
 
       {
         id: "customer",

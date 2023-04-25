@@ -63,6 +63,8 @@ import {NgxPrintModule} from 'ngx-print';
 import {LocalStorageService} from 'ngx-webstorage';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {CommandesComponent} from './layout/commandes/commandes.component';
+import {RegisterComponent} from './main/pages/authentication/register/register.component';
+import {DepotComponent} from './components/depot/depot.component';
 
 const appRoutes: Routes = [
 
@@ -158,6 +160,12 @@ const appRoutes: Routes = [
     {
         path: 'employe/afficher', component: AfficheremployeComponent
     },
+    {
+        path: 'register', component: RegisterComponent
+    },
+    {
+        path: 'depot', component: DepotComponent
+    },
 
 
     {
@@ -205,6 +213,7 @@ const appRoutes: Routes = [
         UserProfileComponent,
         ChangePasswordComponent,
         PannierComponent,
+        DepotComponent,
         HomeshopComponent],
     imports: [
         BrowserModule,

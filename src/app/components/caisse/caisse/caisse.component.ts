@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ClientService} from 'app/service/client/client.service';
 import {ClientModule} from 'app/module/client.module';
 import {ProduitService} from 'app/service/produit/produit.service';
@@ -7,7 +7,11 @@ import {FactureclientService} from 'app/service/factureclient/factureclient.serv
 import {FactureligneproduitModule} from 'app/module/factureligneproduit.module';
 import {ProduitModule} from '../../../module/produit.module';
 import {FormBuilder, FormGroup} from '@angular/forms';
-
+import jsPDF from 'jspdf';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import htmlToPdfmake from 'html-to-pdfmake';
 
 @Component({
     selector: 'app-caisse',
@@ -24,6 +28,7 @@ export class CaisseComponent implements OnInit {
     amountPaid = 0;
     tableData: ProduitModule[] = [];
     factureNumber: number;
+    @ViewChild('pdfTable') pdfTable: ElementRef;
 
     constructor(private factureclientService: FactureclientService,
                 private fb: FormBuilder,
@@ -171,6 +176,17 @@ export class CaisseComponent implements OnInit {
         //         });
     }
 
+    public downloadAsPDF() {
+        const doc = new jsPDF();
+        //get table html
+        const pdfTable = this.pdfTable.nativeElement;
+        //html to pdf format
+        var html = htmlToPdfmake(pdfTable.innerHTML);
 
+        const documentDefinition = { content: html };
+        pdfMake.createPdf(documentDefinition).open();
+
+
+    }
 }
 

@@ -1,6 +1,7 @@
 <div id="screen">
-    <div class="row">
+    <div class="row" #pdfTable>
         <div class="col-md-9">
+
             <div class="form-row" [formGroup]="formCaisse">
                 <div class="col-md-12 mb-3">
                     <div class="input-group">
@@ -21,7 +22,7 @@
             <!-- Table of products added to the cart -->
             <table class="table table-bordered">
                 <thead>
-                <tr>
+                <tr class="add">
                     <th>Barcode</th>
                     <th>Quantity</th>
                     <th>Name</th>
@@ -32,7 +33,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let item of tableData">
+                <tr *ngFor="let item of tableData" class="content">
                     <td>{{ item.codebar }}</td>
                     <td>{{ item.qteInPacket }}</td>
                     <td>{{ item.nom }}</td>
@@ -124,13 +125,14 @@
                             <p>Amount to be Paid in Cash: {{ remainingAmount }}</p>
                         </div>
                     </div>
-
-
-                    <button class="btn btn-success mr-1" (click)="onSave()">Save</button>
-                    <button class="btn btn-danger">Delete</button>
-                    <button class="btn btn-warning mr-1 ml-auto mr-0 mb-2" printSectionId="screen"
-                            ngxPrint>Imprimer</button>
                 </div>
+
+
+                <button class="btn btn-success mr-1" (click)="onSave()">Save</button>
+                <button class="btn btn-danger">Delete</button>
+                <button class="btn btn-warning mr-1 ml-auto mr-0 mb-2" (click)="downloadAsPDF()"
+                >Imprimer
+                </button>
             </div>
         </div>
     </div>

@@ -46,6 +46,14 @@ export const menu: CoreMenu[] = [
         icon: "dollar-sign",
         url: "caisse",
       },
+      {
+        id: "depot",
+        title: "depot",
+        translate: "depot",
+        type: "item",
+        icon: "dollar-sign",
+        url: "depot",
+      },
 
 
 
